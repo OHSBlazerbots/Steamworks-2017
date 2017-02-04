@@ -14,8 +14,10 @@ public class DriveProtoWithJoystick extends CommandBase {
 	//any subsystem you use should be here!
 	public DriveProtoWithJoystick()
    {
-	   requires(chassis);
+	   requires(protos);
    }
+	
+	
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
@@ -26,7 +28,7 @@ public class DriveProtoWithJoystick extends CommandBase {
 	//What does it do?
 	protected void execute() {
 		// TODO Auto-generated method stub
-		chassis.driveProtoWithJoystick(OI.getXBoxController());
+		protos.runProtoTypeMotors(OI.getXBoxController());
 		
 	}
 

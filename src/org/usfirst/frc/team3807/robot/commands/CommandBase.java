@@ -36,9 +36,9 @@ public abstract class CommandBase extends Command {
         // news. Don't move it.
         
     	
-        chassis = new Chassis(RobotMap.LEFT, RobotMap.RIGHT, RobotMap.PROTO_TYPE2);
+        chassis = new Chassis(RobotMap.LEFT, RobotMap.RIGHT);
         sensorBase = new SensorBase();
-        protos = new PrototypeMotors();
+        protos = new PrototypeMotors(RobotMap.PROTO_TYPE2);
         
         
         //OI always instantiated LAST!!!

@@ -2,6 +2,7 @@ package org.usfirst.frc.team3807.robot.subsystems;
 
 import org.usfirst.frc.team3807.robot.OI;
 import org.usfirst.frc.team3807.robot.RobotMap;
+import org.usfirst.frc.team3807.robot.commands.DriveProtoWithJoystick;
 import org.usfirst.frc.team3807.robot.commands.DriveWithJoystick;
 
 import com.ctre.CANTalon;
@@ -23,47 +24,20 @@ public class Chassis extends Subsystem {
 	// RobotDrive robotDrive;
 	CANTalon left, right;
 	public RobotDrive drive;
-	
-	CANTalon protoMotor;
+
 	//private CANTalon protoMotor2 = new CANTalon(RobotMap.PROTO_TYPE2);
 	private boolean reverse;
 
-	public Chassis(int L, int R, int P) {
+	public Chassis(int L, int R) {
 		if (L != -1 && R != -1) {
 			// robotDrive = new RobotDrive(frontL, backL, frontR, backR);
 			left = new CANTalon(L);
 			right = new CANTalon(R);
 		}
-		if(P != -1){
-			protoMotor = new CANTalon(P);
-		}
 		drive = new RobotDrive(left, right);
 		drive.setSafetyEnabled(false);
 	}
 	
-	//drives the prototype motor - refer to DriveProtoWithJoystick Command
-		public void driveProtoWithJoystick(XboxController controller)
-		{ 
-			double speedProto = 0;
-			
-			speedProto = controller.getX(Hand.kLeft);
-			protoMotor.set(speedProto);
-			
-			//if(controller.getXButton()){
-			//	speedProto = 0.8;
-			//}else if(controller.getAButton()){
-			//speedProto = 0.2;
-			//}else{
-			//	speedProto = 0;
-			//}
-		 
-			//this.protoMotor.set(speedProto);
-			//this.protoMotor2.set(speedProto);
-			
-			//this.protoMotor.set(.5);
-			//this.protoMotor2.set(.5);
-		}
-
 	public void drive(double speed, double turn) {
 		drive.arcadeDrive(speed, turn);
 	}
