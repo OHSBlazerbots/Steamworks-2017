@@ -4,6 +4,9 @@ import org.usfirst.frc.team3807.robot.OI;
 import org.usfirst.frc.team3807.robot.RobotMap;
 import org.usfirst.frc.team3807.robot.subsystems.Chassis;
 //import org.usfirst.frc.team3807.robot.subsystems.PotArm;
+//import org.usfirst.frc.team3807.robot.subsystems.SensorBase;
+
+import org.usfirst.frc.team3807.robot.subsystems.PrototypeMotors;
 import org.usfirst.frc.team3807.robot.subsystems.SensorBase;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -22,6 +25,7 @@ public abstract class CommandBase extends Command {
     
     public static Chassis chassis;
     public static SensorBase  sensorBase;
+    public static PrototypeMotors protos;
     public static OI oi;
     
     public static void init() {
@@ -31,8 +35,10 @@ public abstract class CommandBase extends Command {
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
         
-        chassis = new Chassis(RobotMap.LEFT, RobotMap.RIGHT);
+    	
+        chassis = new Chassis(RobotMap.LEFT, RobotMap.RIGHT, RobotMap.PROTO_TYPE2);
         sensorBase = new SensorBase();
+        protos = new PrototypeMotors();
         
         
         //OI always instantiated LAST!!!

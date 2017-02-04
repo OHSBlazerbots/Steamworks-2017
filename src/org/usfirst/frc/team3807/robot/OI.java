@@ -1,6 +1,9 @@
 package org.usfirst.frc.team3807.robot;
 
+import org.usfirst.frc.team3807.robot.commands.DriveWithJoystick;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -38,8 +41,18 @@ public class OI {
 	private static Joystick joystick = new Joystick(RobotMap.JOYSTICK_PORT);
 	private static Joystick coDriver1 = new Joystick(RobotMap.CODRIVER_JOYSTICK_PORT);
 	private static Joystick coDriver2 = new Joystick(RobotMap.CODRIVER_JOYSTICK_PORT2);
-	private static Joystick xBoxCoDriver = new Joystick(RobotMap.XBOX_CONTROLLER);
+	private static XboxController xBoxCoDriver = new XboxController(RobotMap.XBOX_CONTROLLER);
+	//private final JoystickButton inverse;
 	
+	
+	public OI()
+	{
+		//Add buttons to this area in OI so you can click them on the joystick or on the xbox controller.
+		//You have to add a button in this method so that the robot can move when you click a button on the joystick or the xbox controller.
+		//inverse = new JoystickButton(joystick,7); //It is button one on the driver joystick, it changes the direction of ther robot controls for chassis
+		//inverse.toggleWhenPressed(new InverseDrive());
+	}
+	//The static in this method to be called without being instanced in another 
 	public static Joystick getJoystick()
 	{
 		return joystick;
@@ -54,8 +67,9 @@ public class OI {
 	{
 		return coDriver2;
 	}
-	public static Joystick getXBoxController()
+	public static XboxController getXBoxController()
 	{
 		return xBoxCoDriver;
 	}
+	
 }

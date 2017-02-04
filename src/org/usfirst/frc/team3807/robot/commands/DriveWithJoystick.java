@@ -1,16 +1,22 @@
+
 package org.usfirst.frc.team3807.robot.commands;
 
 import org.usfirst.frc.team3807.robot.OI;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  *
  */
 public class DriveWithJoystick extends CommandBase {
 
+	private final JoystickButton inverse = new JoystickButton(OI.getJoystick(),1);
+	
     public DriveWithJoystick() {
         // Use requires() here to declare subsystem dependencies
         requires(chassis);
-        requires(sensorBase);
+      //  requires(sensorBase);
     }
 
     // Called just before this Command runs the first time
@@ -19,8 +25,13 @@ public class DriveWithJoystick extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if(inverse.get())
+    	{
     	chassis.driveWithJoystick(OI.getJoystick());
-    	sensorBase.printCurrents();
+    	}
+    	else
+    		chassis.driveWithJoystickInverse(OI.getJoystick());
+    //	sensorBase.printCurrents()
     }
 
     // Make this return true when this Command no longer needs to run execute()

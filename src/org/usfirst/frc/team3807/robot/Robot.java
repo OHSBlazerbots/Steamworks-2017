@@ -1,12 +1,21 @@
 
 package org.usfirst.frc.team3807.robot;
 
+import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
+import org.usfirst.frc.team3807.robot.commands.CommandBase;
+import org.usfirst.frc.team3807.robot.subsystems.GripPipeline;
+
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -20,7 +29,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<>();
+	//SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -29,8 +38,48 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", chooser);
+		CommandBase.init();
+		
+		new Thread(() -> {
+            //Camera 1, or the front camera
+//			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+//            camera.setResolution(640, 480);         
+//            CvSink cvSink = CameraServer.getInstance().getVideo();
+//            CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
+//            Mat source = new Mat();
+//            Mat output = new Mat();
+//            GripPipeline pipeline = new GripPipeline();
+//            pipeline.process(source);
+//            pipeline.hslThresholdOutput();
+			
+			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+            camera.setResolution(640, 480);
+            
+            CvSink cvSink = CameraServer.getInstance().getVideo();
+            CvSource outputStream = CameraServer.getInstance().putVideo("Bubblegum", 640, 480);
+            
+            Mat source = new Mat();
+            Mat output = new Mat();
+            
+            while(!Thread.interrupted()) {
+                cvSink.grabFrame(source);
+                Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
+                outputStream.putFrame(output);
+            }
+			
+        }).start();
+		
+		//*****Temp. commented out, camera stuff
+//		cams1.startAutomaticCapture();
+//		
+//		//CameraServer.getInstance().startAutomaticCapture();
+//		chooser.addObject("My Auto", new MyAutoCommand());
+//		SmartDashboard.putData("Auto mode", chooser);
+	}
+
+	private void addServer(String string, int i) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/**
@@ -61,7 +110,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+		//autonomousCommand = chooser.getSelected();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -99,6 +148,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
+		//DO NOT USE THIS CODE UNLESS ABSOLUTELY NECESSARY FOR TESTING PURPOSES
+//		CANTalon test = new CANTalon(4);
+//		test.set(.5);
 	}
 
 	/**
@@ -108,4 +161,11 @@ public class Robot extends IterativeRobot {
 	public void testPeriodic() {
 		LiveWindow.run();
 	}
+//	private void RobotInit()
+//	    {
+//		CameraServer server = CameraServer.getInstance();
+//		server.setQuality(50);
+//		server.startAutomaticCapture("cam0");
+//	    }
+//	}
 }
