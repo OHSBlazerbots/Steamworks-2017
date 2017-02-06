@@ -41,17 +41,6 @@ public class Robot extends IterativeRobot {
 		CommandBase.init();
 		
 		new Thread(() -> {
-            //Camera 1, or the front camera
-//			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-//            camera.setResolution(640, 480);         
-//            CvSink cvSink = CameraServer.getInstance().getVideo();
-//            CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
-//            Mat source = new Mat();
-//            Mat output = new Mat();
-//            GripPipeline pipeline = new GripPipeline();
-//            pipeline.process(source);
-//            pipeline.hslThresholdOutput();
-			
 			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
             camera.setResolution(640, 480);
             

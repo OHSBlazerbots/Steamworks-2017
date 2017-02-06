@@ -1,5 +1,14 @@
 package org.usfirst.frc.team3807.robot.subsystems;
 
-public class PickerUpper {
+import org.usfirst.frc.team3807.robot.commands.DriveProtoWithJoystick;
 
+public class PickerUpper {
+	public PickerUpper(){
+		
+	}
+//	@Override
+//	protected void initDefaultCommand() {
+//		// TODO Auto-generated method stub
+//		setDefaultCommand(new DriveProtoWithJoystick());
+//	}
 }

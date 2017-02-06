@@ -35,8 +35,8 @@ public class RobotMap {
 	
 	//prototype motors for 2017 steamworks
 	public static int PROTO_TYPE = 5;
-	public static int PROTO_TYPE2 = 4;
+	public static int PROTO_TYPE_2 = 4;
 	
 	public static CANTalon PROTO_TYPE_MOTOR = new CANTalon(PROTO_TYPE);
-	public static CANTalon PROTO_TYPE_MOTOR2 = new CANTalon(PROTO_TYPE2);
+	public static CANTalon PROTO_TYPE_MOTOR_2 = new CANTalon(PROTO_TYPE_2);
 }
