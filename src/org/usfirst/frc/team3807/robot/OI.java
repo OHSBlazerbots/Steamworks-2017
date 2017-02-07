@@ -1,6 +1,8 @@
 package org.usfirst.frc.team3807.robot;
 
 import org.usfirst.frc.team3807.robot.commands.DriveWithJoystick;
+import org.usfirst.frc.team3807.robot.commands.RunIntake;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -15,9 +17,7 @@ public class OI {
 	//// joystick.
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
-	// Joystick stick = new Joystick(port);
-	// Button button = new JoystickButton(stick, buttonNumber);
-
+	
 	// There are a few additional built in buttons you can use. Additionally,
 	// by subclassing Button you can create custom triggers and bind those to
 	// commands the same as any other Button.
@@ -43,6 +43,14 @@ public class OI {
 	private static Joystick coDriver2 = new Joystick(RobotMap.CODRIVER_JOYSTICK_PORT2);
 	private static XboxController xBoxCoDriver = new XboxController(RobotMap.XBOX_CONTROLLER);
 	//private final JoystickButton inverse;
+	// Joystick stick = new Joystick(port);
+	// Button button = new JoystickButton(stick, buttonNumber);
+	
+	private static JoystickButton intake1;
+	private static JoystickButton intake2;
+	
+	
+	
 	
 	
 	public OI()
@@ -51,6 +59,12 @@ public class OI {
 		//You have to add a button in this method so that the robot can move when you click a button on the joystick or the xbox controller.
 		//inverse = new JoystickButton(joystick,7); //It is button one on the driver joystick, it changes the direction of ther robot controls for chassis
 		//inverse.toggleWhenPressed(new InverseDrive());
+		
+		intake1=new JoystickButton(joystick,11);
+		intake1.toggleWhenPressed(new RunIntake());
+		
+		intake2=new JoystickButton(joystick,12);
+		intake2.toggleWhenPressed(new RunIntake());
 	}
 	//The static in this method to be called without being instanced in another 
 	public static Joystick getJoystick()

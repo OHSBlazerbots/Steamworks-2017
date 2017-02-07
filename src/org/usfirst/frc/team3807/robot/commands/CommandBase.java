@@ -7,6 +7,7 @@ import org.usfirst.frc.team3807.robot.subsystems.Chassis;
 //import org.usfirst.frc.team3807.robot.subsystems.SensorBase;
 
 import org.usfirst.frc.team3807.robot.subsystems.Climber;
+import org.usfirst.frc.team3807.robot.subsystems.PickerUpper;
 import org.usfirst.frc.team3807.robot.subsystems.PrototypeMotors;
 import org.usfirst.frc.team3807.robot.subsystems.SensorBase;
 
@@ -28,6 +29,7 @@ public abstract class CommandBase extends Command {
     public static SensorBase  sensorBase;
     public static PrototypeMotors protos;
     public static Climber climb;
+    public static PickerUpper intake;
     public static OI oi;
     
     public static void init() {
@@ -42,6 +44,7 @@ public abstract class CommandBase extends Command {
         sensorBase = new SensorBase();
         //climb = new Climber(RobotMap.CLIMBER);
         protos = new PrototypeMotors(RobotMap.PROTO_TYPE);
+        intake = new PickerUpper(RobotMap.INTAKE_1,RobotMap.INTAKE_2);
         
         
         //OI always instantiated LAST!!!
