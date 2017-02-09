@@ -2,6 +2,7 @@ package org.usfirst.frc.team3807.robot;
 
 import org.usfirst.frc.team3807.robot.commands.DriveWithJoystick;
 import org.usfirst.frc.team3807.robot.commands.RunIntake;
+import org.usfirst.frc.team3807.robot.commands.runClimber;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
@@ -46,12 +47,12 @@ public class OI {
 	// Joystick stick = new Joystick(port);
 	// Button button = new JoystickButton(stick, buttonNumber);
 	
-	private static JoystickButton intake1;
-	private static JoystickButton intake2;
-	
-	
-	
-	
+	//Creating the Buttons for Intake
+	//private static JoystickButton intake1;
+	private final JoystickButton intake2;
+	//Creating the Buttons for Climber
+	private final JoystickButton climber;
+	//Creating the Buttons for Shooter
 	
 	public OI()
 	{
@@ -60,11 +61,16 @@ public class OI {
 		//inverse = new JoystickButton(joystick,7); //It is button one on the driver joystick, it changes the direction of ther robot controls for chassis
 		//inverse.toggleWhenPressed(new InverseDrive());
 		
-		intake1=new JoystickButton(joystick,11);
-		intake1.toggleWhenPressed(new RunIntake());
+		//setting the buttons for intake
+		//intake1=new JoystickButton(joystick,11);
+		//intake1.toggleWhenPressed(new RunIntake());
 		
 		intake2=new JoystickButton(joystick,12);
 		intake2.toggleWhenPressed(new RunIntake());
+		//setting the button for Climber
+		climber = new JoystickButton(joystick, 9);
+		climber.toggleWhenPressed(new runClimber());
+		//setting the button for Shooter
 	}
 	//The static in this method to be called without being instanced in another 
 	public static Joystick getJoystick()

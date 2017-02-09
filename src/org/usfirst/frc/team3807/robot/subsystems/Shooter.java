@@ -7,13 +7,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Shooter extends Subsystem{
 
-	private CANTalon talonA, talonB;
+	CANTalon talonA, talonB;
 	private Servo servo;
 	
 	public Shooter(int talonPortA, int talonPortB, int servoChannel){
-		talonA = new CANTalon(talonPortA);
-		talonB = new CANTalon(talonPortB);
-		servo = new Servo(servoChannel);
+		if(talonPortA != -1 && talonPortB != -1){
+			talonA = new CANTalon(talonPortA);
+			talonB = new CANTalon(talonPortB);
+		    servo = new Servo(servoChannel);
+		}
 	}
 	
 	public void setShooterSpeed(double speed){

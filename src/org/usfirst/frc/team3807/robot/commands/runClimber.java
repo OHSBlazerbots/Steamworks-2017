@@ -1,29 +1,29 @@
 package org.usfirst.frc.team3807.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class RunIntake extends CommandBase {
+public class runClimber extends CommandBase {
 
-    public RunIntake() {
+    public runClimber() {
         // Use requires() here to declare subsystem dependencies
-        requires(intake);
+        //requires(climber);
     }
 
-    // Called just before this Command runs the first time
+	// Called just before this Command runs the first time
     protected void initialize() {
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	intake.runIntake();
+    	//Can be set in *future* RobotValues class
+//    	climber.runClimberMotor();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
@@ -35,4 +35,3 @@ public class RunIntake extends CommandBase {
     protected void interrupted() {
     }
 }
- 
