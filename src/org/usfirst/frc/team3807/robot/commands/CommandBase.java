@@ -3,11 +3,10 @@ package org.usfirst.frc.team3807.robot.commands;
 import org.usfirst.frc.team3807.robot.OI;
 import org.usfirst.frc.team3807.robot.RobotMap;
 import org.usfirst.frc.team3807.robot.subsystems.Chassis;
+import org.usfirst.frc.team3807.robot.subsystems.Climber;
 //import org.usfirst.frc.team3807.robot.subsystems.PotArm;
 //import org.usfirst.frc.team3807.robot.subsystems.SensorBase;
-
-import org.usfirst.frc.team3807.robot.subsystems.Climber;
-import org.usfirst.frc.team3807.robot.subsystems.PickerUpper;
+import org.usfirst.frc.team3807.robot.subsystems.Intake;
 import org.usfirst.frc.team3807.robot.subsystems.PrototypeMotors;
 import org.usfirst.frc.team3807.robot.subsystems.SensorBase;
 import org.usfirst.frc.team3807.robot.subsystems.Shooter;
@@ -25,14 +24,13 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public abstract class CommandBase extends Command {
 
-    
-    public static Chassis chassis;
-    public static SensorBase  sensorBase;
-    public static PrototypeMotors protos;
-    //public static Climber climber;
-    public static PickerUpper intake;
+	public static OI oi;
+    public static Chassis chassis = new Chassis(RobotMap.LEFT, RobotMap.RIGHT);
+    public static SensorBase  sensorBase = new SensorBase();
+    public static PrototypeMotors protos = new PrototypeMotors(RobotMap.PROTO_TYPE, RobotMap.PROTO_TYPE_2);
+    public static Climber climber = new Climber(RobotMap.CLIMBER_MOTOR);
+    public static Intake intake = new Intake(RobotMap.INTAKE_1,RobotMap.INTAKE_2);
     public static Shooter shooter;
-    public static OI oi;
     
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -41,12 +39,8 @@ public abstract class CommandBase extends Command {
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
     	
-        chassis = new Chassis(RobotMap.LEFT, RobotMap.RIGHT);
-        sensorBase = new SensorBase();
-        protos = new PrototypeMotors(RobotMap.PROTO_TYPE);
        
-        intake = new PickerUpper(RobotMap.INTAKE_1,RobotMap.INTAKE_2);
-        //climber = new Climber(RobotMap.CLIMBER_MOTOR);
+        //
         
         //OI always instantiated LAST!!!
         oi = new OI();

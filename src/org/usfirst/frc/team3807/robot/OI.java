@@ -1,6 +1,5 @@
 package org.usfirst.frc.team3807.robot;
 
-import org.usfirst.frc.team3807.robot.commands.DriveWithJoystick;
 import org.usfirst.frc.team3807.robot.commands.RunIntake;
 import org.usfirst.frc.team3807.robot.commands.runClimber;
 
@@ -51,7 +50,6 @@ public class OI {
 	//private static JoystickButton intake1;
 	private final JoystickButton intake2;
 	//Creating the Buttons for Climber
-	private final JoystickButton climber;
 	//Creating the Buttons for Shooter
 	
 	public OI()
@@ -68,8 +66,6 @@ public class OI {
 		intake2=new JoystickButton(joystick,12);
 		intake2.toggleWhenPressed(new RunIntake());
 		//setting the button for Climber
-		climber = new JoystickButton(joystick, 9);
-		climber.toggleWhenPressed(new runClimber());
 		//setting the button for Shooter
 	}
 	//The static in this method to be called without being instanced in another 

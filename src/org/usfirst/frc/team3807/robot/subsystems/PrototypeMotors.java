@@ -11,10 +11,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class PrototypeMotors extends Subsystem {
 	
 	CANTalon protoMotor;
+	CANTalon protoMotor2;
 	
-	public PrototypeMotors(int P){
-		if(P != -1){
+	public PrototypeMotors(int P , int Q){
+		if(P != -1 && Q !=-1){
 			protoMotor = new CANTalon(P);
+			protoMotor2 = new CANTalon(Q);
 		}
 	}
 	@Override
@@ -26,8 +28,9 @@ public class PrototypeMotors extends Subsystem {
 	public void runProtoTypeMotors(XboxController controller){
 		double speedProto = 0;
 		
-		speedProto = controller.getX(Hand.kLeft)*0.6;
+		speedProto = controller.getY(Hand.kLeft)*.85;
 		protoMotor.set(speedProto);
+		protoMotor2.set(speedProto);
 		
 	}
 

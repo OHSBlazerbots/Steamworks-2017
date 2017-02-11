@@ -8,7 +8,7 @@ public class runClimber extends CommandBase {
 
     public runClimber() {
         // Use requires() here to declare subsystem dependencies
-        //requires(climber);
+        requires(climber);
     }
 
 	// Called just before this Command runs the first time
@@ -18,7 +18,7 @@ public class runClimber extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//Can be set in *future* RobotValues class
-//    	climber.runClimberMotor();
+    	climber.runClimberMotor();
     }
 
     // Make this return true when this Command no longer needs to run execute()
