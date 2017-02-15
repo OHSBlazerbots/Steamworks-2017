@@ -1,7 +1,7 @@
 package org.usfirst.frc.team3807.robot;
 
-import org.usfirst.frc.team3807.robot.commands.RunIntake;
-import org.usfirst.frc.team3807.robot.commands.runClimber;
+import org.usfirst.frc.team3807.robot.commands.Climber.RunClimber;
+import org.usfirst.frc.team3807.robot.commands.Intake.RunIntake;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;

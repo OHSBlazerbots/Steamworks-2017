@@ -2,8 +2,8 @@ package org.usfirst.frc.team3807.robot.subsystems;
 
 import org.usfirst.frc.team3807.robot.OI;
 import org.usfirst.frc.team3807.robot.RobotMap;
-import org.usfirst.frc.team3807.robot.commands.DriveProtoWithJoystick;
 import org.usfirst.frc.team3807.robot.commands.DriveWithJoystick;
+import org.usfirst.frc.team3807.robot.commands.Proto.DriveProtoWithJoystick;
 
 import com.ctre.CANTalon;
 

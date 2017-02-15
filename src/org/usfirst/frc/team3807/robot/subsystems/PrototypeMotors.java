@@ -1,11 +1,11 @@
 package org.usfirst.frc.team3807.robot.subsystems;
 
-import org.usfirst.frc.team3807.robot.commands.DriveProtoWithJoystick;
+import org.usfirst.frc.team3807.robot.commands.Proto.DriveProtoWithJoystick;
 
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
-import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class PrototypeMotors extends Subsystem {
@@ -19,18 +19,22 @@ public class PrototypeMotors extends Subsystem {
 			protoMotor2 = new CANTalon(Q);
 		}
 	}
+	
+	public void setSpeed(double speed1) {
+		 protoMotor.set(speed1);
+		 protoMotor2.set(speed1);
+	}
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
 		setDefaultCommand(new DriveProtoWithJoystick());
 	}
 	
-	public void runProtoTypeMotors(XboxController controller){
+	public void runProtoTypeMotors(Joystick joystick){
 		double speedProto = 0;
 		
-		speedProto = controller.getY(Hand.kLeft)*.85;
-		protoMotor.set(speedProto);
-		protoMotor2.set(speedProto);
+		speedProto = joystick.getY()*.85;
+		this.setSpeed(speedProto);
 		
 	}
 

@@ -1,7 +1,8 @@
-package org.usfirst.frc.team3807.robot.commands;
+package org.usfirst.frc.team3807.robot.commands.Proto;
 
 import org.usfirst.frc.team3807.robot.OI;
 import org.usfirst.frc.team3807.robot.RobotMap;
+import org.usfirst.frc.team3807.robot.commands.CommandBase;
 
 /**
  * @author blazerbots
@@ -28,7 +29,7 @@ public class DriveProtoWithJoystick extends CommandBase {
 	//What does it do?
 	protected void execute() {
 		// TODO Auto-generated method stub
-		protos.runProtoTypeMotors(OI.getXBoxController());
+		protos.runProtoTypeMotors(OI.getJoystick());
 		
 	}
 

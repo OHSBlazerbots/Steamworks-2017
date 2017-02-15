@@ -24,7 +24,7 @@ public class Shooter extends Subsystem{
 	}
 	
 	//Range is typically 0 to 170 degrees, but check specs.
-	public void setServoAngle(int angle){
+	public void setServoAngle(double angle){
 		servo.setAngle(angle);
 	}
 	

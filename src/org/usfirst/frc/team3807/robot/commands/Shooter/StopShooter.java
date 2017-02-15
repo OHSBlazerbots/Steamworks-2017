@@ -1,15 +1,16 @@
-package org.usfirst.frc.team3807.robot.commands;
+package org.usfirst.frc.team3807.robot.commands.Shooter;
 
-import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team3807.robot.commands.CommandBase;
 
 /**
  *
  */
-public class RunIntake extends CommandBase {
+public class StopShooter extends CommandBase {
 
-    public RunIntake() {
+    public StopShooter() {
         // Use requires() here to declare subsystem dependencies
-        requires(intake);
+        // eg. requires(chassis);
+    	requires(shooter);
     }
 
     // Called just before this Command runs the first time
@@ -18,12 +19,12 @@ public class RunIntake extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	intake.runIntake();
+    	shooter.setShooterSpeed(0.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
@@ -35,4 +36,3 @@ public class RunIntake extends CommandBase {
     protected void interrupted() {
     }
 }
- 

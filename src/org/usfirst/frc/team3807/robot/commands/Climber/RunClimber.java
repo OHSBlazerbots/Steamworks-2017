@@ -1,12 +1,14 @@
-package org.usfirst.frc.team3807.robot.commands;
+package org.usfirst.frc.team3807.robot.commands.Climber;
+
+import org.usfirst.frc.team3807.robot.commands.CommandBase;
 
 
 /**
  *
  */
-public class runClimber extends CommandBase {
+public class RunClimber extends CommandBase {
 
-    public runClimber() {
+    public RunClimber() {
         // Use requires() here to declare subsystem dependencies
         requires(climber);
     }

@@ -1,21 +1,21 @@
-
 package org.usfirst.frc.team3807.robot;
 
-import org.opencv.core.Mat;
-import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team3807.robot.commands.CommandBase;
-import org.usfirst.frc.team3807.robot.subsystems.GripPipeline;
+import org.usfirst.frc.team3807.robot.commands.autonomous.DoNothingAuto;
+import org.usfirst.frc.team3807.robot.commands.autonomous.DriveFowardAuto;
+import org.usfirst.frc.team3807.robot.commands.autonomous.GearAuto;
+import org.usfirst.frc.team3807.robot.commands.autonomous.ProtoAuto;
 
-import edu.wpi.cscore.CvSink;
-import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 //import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,8 +29,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	Command autonomousCommand;
-	//SendableChooser<Command> chooser = new SendableChooser<>();
-
+	SendableChooser autoChooser;
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -39,6 +39,13 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		CommandBase.init();
+		autoChooser = new SendableChooser();
+		autoChooser.addDefault("DoNothingAuto", new DoNothingAuto());
+		autoChooser.addObject("DriveFoward", new DriveFowardAuto());
+		autoChooser.addObject("ProtoAuto", new ProtoAuto());
+		autoChooser.addObject("GearAuto", new GearAuto());
+		
+		SmartDashboard.putData("Autonomoous mode chooser", autoChooser);
 		
 		new Thread(() -> {
 			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture("cam0",0);
@@ -60,7 +67,18 @@ public class Robot extends IterativeRobot {
 //            }
 			
         }).start();
-		
+		//autonomousCommand = new ProtoAuto();
+
+//		try {
+//			SmartDashboard.getBoolean("DoNothingAuto");
+//		} catch (Exception e) {
+//			SmartDashboard.putBoolean("DoNothingAuto", false);
+//		}
+//		
+//		if(SmartDashboard.getBoolean("DoNothingAutot"))
+//		{
+//			autonomousCommand = new DoNothingAuto();
+//		}
 		//*****Temp. commented out, camera stuff
 //		cams1.startAutomaticCapture();
 //		
@@ -110,7 +128,7 @@ public class Robot extends IterativeRobot {
 		 * = new MyAutoCommand(); break; case "Default Auto": default:
 		 * autonomousCommand = new ExampleCommand(); break; }
 		 */
-
+		
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null)
 			autonomousCommand.start();

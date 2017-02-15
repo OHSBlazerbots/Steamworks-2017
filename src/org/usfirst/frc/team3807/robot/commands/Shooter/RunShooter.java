@@ -1,15 +1,16 @@
-package org.usfirst.frc.team3807.robot.commands;
+package org.usfirst.frc.team3807.robot.commands.Shooter;
 
-import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team3807.robot.commands.CommandBase;
+
 
 /**
  *
  */
-public class ReverseIntake extends CommandBase {
+public class RunShooter extends CommandBase {
 
-    public ReverseIntake() {
+    public RunShooter() {
         // Use requires() here to declare subsystem dependencies
-        //requires(intake);
+        requires(shooter);
     }
 
     // Called just before this Command runs the first time
@@ -18,12 +19,13 @@ public class ReverseIntake extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//intake.reverseIntake();
+    	//Can be set in *future* RobotValues class
+    	shooter.setShooterSpeed(0.8);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
