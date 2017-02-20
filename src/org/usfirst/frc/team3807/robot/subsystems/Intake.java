@@ -16,15 +16,15 @@ public class Intake extends Subsystem {
 		}
 	}
 	
-	public void runIntake(){
-		double speedIntake = 0;
+	public void runIntake(double speedIntake){
+		//double speedIntake = 0;
 		intake1.set(speedIntake);
 		intake2.set(-speedIntake);
 		
 		
 	}
-	public void reverseIntake(){
-		double speedIntake = 0;
+	public void reverseIntake(double speedIntake){
+		//double speedIntake = 0;
 		intake1.set(-speedIntake);
 		intake2.set(speedIntake);
 	}

@@ -20,7 +20,7 @@ public class RobotMap {
 	// public static int rangefinderModule = 1;
 	
 	//ID's for the Chassis the Wheels, Cantalon
-	public static int RIGHT = 7;
+	public static int RIGHT = 3;
 	public static int LEFT = 6;
 	
 	//IDs for the joysticks
@@ -34,19 +34,29 @@ public class RobotMap {
 	public static CANTalon RIGHT_TALON = new CANTalon(RIGHT);
 	
 	//Picker Upper/Intake
-	public static int INTAKE_1 = -1;
-	public static int INTAKE_2 = -1;
-	public static CANTalon INTAKE_PICKERUPPER_1 = new CANTalon(INTAKE_1);
-	public static CANTalon INTAKE_PICKERUPPER_2 = new CANTalon(INTAKE_2);
+	public static int INTAKE_LEFT = -1;
+	public static int INTAKE_RIGHT = -1;
+	public static CANTalon INTAKE_PICKERUPPER_1 = new CANTalon(INTAKE_LEFT);
+	public static CANTalon INTAKE_PICKERUPPER_2 = new CANTalon(INTAKE_RIGHT);
 	
 	//Climber
 	public static int CLIMBER_MOTOR = -1;
 	public static CANTalon CLIMBER = new CANTalon(CLIMBER_MOTOR);
 	
-	//prototype motors for 2017 steamworks
-	public static int PROTO_TYPE = 5;
-	public static int PROTO_TYPE_2 = 8;
+	//Shooter
+	public static int SHOOTER_LEFT = -1;
+	public static int SHOOTER_RIGHT = -1;
+	public static int SERVO_CHANNEL = -1
+			
+			
+			;
+	public static CANTalon SHOOTER_LEFT_SIDE = new CANTalon(SHOOTER_LEFT);
+	public static CANTalon SHOOTER_RIGHT_SIDE = new CANTalon(SHOOTER_RIGHT);
 	
+	
+	//prototype motors for 2017 steamworks
+	public static int PROTO_TYPE = 1;
+	public static int PROTO_TYPE_2 = 2;
 	public static CANTalon PROTO_TYPE_MOTOR = new CANTalon(PROTO_TYPE);
 	public static CANTalon PROTO_TYPE_MOTOR_2 = new CANTalon(PROTO_TYPE_2);
 }

@@ -58,11 +58,11 @@ public class Chassis extends Subsystem {
 	public void driveWithJoystickInverse(Joystick joystick) {
 		//Changes how fast the robot is going. The turn changes how fast it turns, that values must be high in order for the robot to turn
 		//move changes how fast the robot moves foward and backwards and so that value has to be lower to fit the speed of turn.
-		double turn = joystick.getZ()*-0.7;
+		double turn = joystick.getZ()*0.7;
 			// Drive is the y
 			double move = joystick.getY()*0.7;
 			//the code above slows down the robot, remove *0.x to bring it back to normal speed
-		drive(move, turn);
+		drive(-move, -turn);
 	}
 
 	public void initDefaultCommand() {

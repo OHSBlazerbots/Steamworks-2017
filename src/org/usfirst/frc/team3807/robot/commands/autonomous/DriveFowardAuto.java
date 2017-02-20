@@ -12,7 +12,7 @@ public class DriveFowardAuto extends Autonomous{
 	public DriveFowardAuto(){
 		//addSequential(new Drive(1, 0));
 		addSequential(new Drive(.7, 0));
-		addSequential(new WaitCommand(3.0));
+		addSequential(new WaitCommand(2));
 		addSequential(new HaltRobot());
 	}
 }

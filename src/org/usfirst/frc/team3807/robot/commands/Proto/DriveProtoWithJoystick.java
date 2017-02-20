@@ -29,7 +29,7 @@ public class DriveProtoWithJoystick extends CommandBase {
 	//What does it do?
 	protected void execute() {
 		// TODO Auto-generated method stub
-		protos.runProtoTypeMotors(OI.getJoystick());
+		protos.runProtoTypeMotors(OI.getXBoxController());
 		
 	}
 

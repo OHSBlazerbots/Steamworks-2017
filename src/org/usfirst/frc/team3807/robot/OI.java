@@ -1,8 +1,8 @@
 package org.usfirst.frc.team3807.robot;
-
-import org.usfirst.frc.team3807.robot.commands.Climber.RunClimber;
+import org.usfirst.frc.team3807.robot.commands.Intake.ReverseIntake;
 import org.usfirst.frc.team3807.robot.commands.Intake.RunIntake;
 
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -47,8 +47,10 @@ public class OI {
 	// Button button = new JoystickButton(stick, buttonNumber);
 	
 	//Creating the Buttons for Intake
-	//private static JoystickButton intake1;
-	private final JoystickButton intake2;
+//	private final JoystickButton intake1;
+//	private final JoystickButton intake2;
+	//private final JoystickButton increaseAngle;
+	
 	//Creating the Buttons for Climber
 	//Creating the Buttons for Shooter
 	
@@ -60,11 +62,14 @@ public class OI {
 		//inverse.toggleWhenPressed(new InverseDrive());
 		
 		//setting the buttons for intake
-		//intake1=new JoystickButton(joystick,11);
-		//intake1.toggleWhenPressed(new RunIntake());
-		
-		intake2=new JoystickButton(joystick,12);
-		intake2.toggleWhenPressed(new RunIntake());
+//		intake1=new JoystickButton(joystick,9);
+//		intake1.toggleWhenPressed(new ReverseIntake());
+//		
+//		intake2=new JoystickButton(joystick,11);
+//		intake2.toggleWhenPressed(new RunIntake());
+//		
+		//increaseAngle = new JoystickButton();
+		//increaseAngle.whenPressed(command);
 		//setting the button for Climber
 		//setting the button for Shooter
 	}

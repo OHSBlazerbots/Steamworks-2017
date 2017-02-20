@@ -5,7 +5,7 @@ import org.usfirst.frc.team3807.robot.commands.Proto.DriveProtoWithJoystick;
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class PrototypeMotors extends Subsystem {
@@ -30,10 +30,10 @@ public class PrototypeMotors extends Subsystem {
 		setDefaultCommand(new DriveProtoWithJoystick());
 	}
 	
-	public void runProtoTypeMotors(Joystick joystick){
+	public void runProtoTypeMotors(XboxController controller){
 		double speedProto = 0;
 		
-		speedProto = joystick.getY()*.85;
+		speedProto = controller.getY(Hand.kRight)* 1.0;
 		this.setSpeed(speedProto);
 		
 	}

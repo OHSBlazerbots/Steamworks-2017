@@ -8,14 +8,17 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ReverseIntake extends CommandBase {
+	double speed;
 
-    public ReverseIntake() {
+    public ReverseIntake(double spd) {
         // Use requires() here to declare subsystem dependencies
-        //requires(intake);
+    	speed = spd;
+        requires(intake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	intake.runIntake(-speed);
     }
 
     // Called repeatedly when this Command is scheduled to run

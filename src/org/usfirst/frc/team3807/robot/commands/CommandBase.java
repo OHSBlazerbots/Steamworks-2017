@@ -29,8 +29,8 @@ public abstract class CommandBase extends Command {
     public static SensorBase  sensorBase = new SensorBase();
     public static PrototypeMotors protos = new PrototypeMotors(RobotMap.PROTO_TYPE, RobotMap.PROTO_TYPE_2);
     public static Climber climber = new Climber(RobotMap.CLIMBER_MOTOR);
-    public static Intake intake = new Intake(RobotMap.INTAKE_1,RobotMap.INTAKE_2);
-    public static Shooter shooter;
+    public static Intake intake = new Intake(RobotMap.INTAKE_LEFT,RobotMap.INTAKE_RIGHT);
+    public static Shooter shooter = new Shooter(RobotMap.SHOOTER_LEFT, RobotMap.SHOOTER_RIGHT, RobotMap.SERVO_CHANNEL);
     
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

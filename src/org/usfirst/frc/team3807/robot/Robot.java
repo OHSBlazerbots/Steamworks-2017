@@ -75,7 +75,7 @@ public class Robot extends IterativeRobot {
 //			SmartDashboard.putBoolean("DoNothingAuto", false);
 //		}
 //		
-//		if(SmartDashboard.getBoolean("DoNothingAutot"))
+//		if(SmartDashboard.getBoolean("DriveFoward"))
 //		{
 //			autonomousCommand = new DoNothingAuto();
 //		}
@@ -120,7 +120,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		//autonomousCommand = chooser.getSelected();
+		autonomousCommand = (Command) autoChooser.getSelected();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
