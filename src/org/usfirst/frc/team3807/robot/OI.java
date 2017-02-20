@@ -47,8 +47,9 @@ public class OI {
 	// Button button = new JoystickButton(stick, buttonNumber);
 	
 	//Creating the Buttons for Intake
-//	private final JoystickButton intake1;
-//	private final JoystickButton intake2;
+	private final JoystickButton intake1;
+	private final JoystickButton intake2;
+	//private final JoystickButton testXBoxButton;
 	//private final JoystickButton increaseAngle;
 	
 	//Creating the Buttons for Climber
@@ -62,11 +63,15 @@ public class OI {
 		//inverse.toggleWhenPressed(new InverseDrive());
 		
 		//setting the buttons for intake
-//		intake1=new JoystickButton(joystick,9);
-//		intake1.toggleWhenPressed(new ReverseIntake());
+		intake1=new JoystickButton(joystick,9);
+		intake1.toggleWhenPressed(new ReverseIntake(0.5));
+		
+		//testXBoxButton = new JoystickButton(xBoxCoDriver, 0);
+		
+		
 //		
-//		intake2=new JoystickButton(joystick,11);
-//		intake2.toggleWhenPressed(new RunIntake());
+		intake2=new JoystickButton(joystick,11);
+		intake2.toggleWhenPressed(new RunIntake(0.9));
 //		
 		//increaseAngle = new JoystickButton();
 		//increaseAngle.whenPressed(command);
