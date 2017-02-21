@@ -7,23 +7,23 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ReverseIntake extends CommandBase {
+public class HaltIntake extends CommandBase {
 	double speed;
 
-    public ReverseIntake(double spd) {
+    public HaltIntake() {
         // Use requires() here to declare subsystem dependencies
-    	speed = spd;
-        requires(intake);
+        speed=0;
+    	requires(intake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	intake.runIntake(-speed);
+    	intake.runIntake(speed);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//intake.reverseIntake();
+    	//intake.runIntake(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -41,3 +41,4 @@ public class ReverseIntake extends CommandBase {
     protected void interrupted() {
     }
 }
+ 

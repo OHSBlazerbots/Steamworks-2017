@@ -14,10 +14,10 @@ public class PrototypeMotors extends Subsystem {
 	CANTalon protoMotor2;
 	
 	public PrototypeMotors(int P , int Q){
-		if(P != -1 && Q !=-1){
+		//if(P != -1 && Q !=-1){
 			protoMotor = new CANTalon(P);
 			protoMotor2 = new CANTalon(Q);
-		}
+		//}
 	}
 	
 	public void setSpeed(double speed1) {

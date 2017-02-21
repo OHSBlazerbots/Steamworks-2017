@@ -34,8 +34,8 @@ public class RobotMap {
 	public static CANTalon RIGHT_TALON = new CANTalon(RIGHT);
 	
 	//Picker Upper/Intake
-	public static int INTAKE_LEFT = -1;
-	public static int INTAKE_RIGHT = -1;
+	public static int INTAKE_LEFT = 1;
+	public static int INTAKE_RIGHT = 2;
 	public static CANTalon INTAKE_PICKERUPPER_1 = new CANTalon(INTAKE_LEFT);
 	public static CANTalon INTAKE_PICKERUPPER_2 = new CANTalon(INTAKE_RIGHT);
 	
@@ -55,8 +55,8 @@ public class RobotMap {
 	
 	
 	//prototype motors for 2017 steamworks
-	public static int PROTO_TYPE = 1;
-	public static int PROTO_TYPE_2 = 2;
+	public static int PROTO_TYPE = -1;
+	public static int PROTO_TYPE_2 = -1;
 	public static CANTalon PROTO_TYPE_MOTOR = new CANTalon(PROTO_TYPE);
 	public static CANTalon PROTO_TYPE_MOTOR_2 = new CANTalon(PROTO_TYPE_2);
 }
