@@ -21,7 +21,7 @@ public class PrototypeMotors extends Subsystem {
 	}
 	
 	public void setSpeed(double speed1) {
-		 protoMotor.set(speed1);
+		 protoMotor.set(-speed1);
 		 protoMotor2.set(speed1);
 	}
 	@Override
