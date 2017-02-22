@@ -47,6 +47,7 @@ public class Robot extends IterativeRobot {
 		
 		SmartDashboard.putData("Autonomoous mode chooser", autoChooser);
 		
+		
 		new Thread(() -> {
 			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture("cam0",0);
 			UsbCamera camera2 = CameraServer.getInstance().startAutomaticCapture("cam1",1);

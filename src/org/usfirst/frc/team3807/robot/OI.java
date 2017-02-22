@@ -47,7 +47,7 @@ public class OI {
 	// Joystick stick = new Joystick(port);
 	// Button button = new JoystickButton(stick, buttonNumber);
 	
-	//Creating the Buttons for Intake
+//	//Creating the Buttons for Intake
 	private final JoystickButton intake1;
 	private final JoystickButton intake2;
 	private final JoystickButton intake3;
@@ -64,7 +64,7 @@ public class OI {
 		//inverse = new JoystickButton(joystick,7); //It is button one on the driver joystick, it changes the direction of ther robot controls for chassis
 		//inverse.toggleWhenPressed(new InverseDrive());
 		
-		//setting the buttons for intake
+//		//setting the buttons for intake
 		intake1=new JoystickButton(joystick,9);
 		intake1.toggleWhenPressed(new ReverseIntake(0.5));
 		//testXBoxButton = new JoystickButton(xBoxCoDriver, 0);
@@ -73,7 +73,7 @@ public class OI {
 		
 		intake3 = new JoystickButton(joystick,10);
 		intake3.whenPressed(new HaltIntake());
-//		
+////		
 		//increaseAngle = new JoystickButton();
 		//increaseAngle.whenPressed(command);
 		//setting the button for Climber
