@@ -1,8 +1,14 @@
 package org.usfirst.frc.team3807.robot.subsystems;
 
+import org.usfirst.frc.team3807.robot.commands.PutSensorValues;
+
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.interfaces.Potentiometer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Holds all sensors, performs appropriate calculations, and returns values to SmartDashboard.
@@ -14,16 +20,36 @@ public class SensorBase extends Subsystem {
 
 	private BuiltInAccelerometer bia;
 	private PowerDistributionPanel pdp;
+	Potentiometer pot;
+	//	private AnalogPotentiometer potV;
 	
 	public SensorBase()
 	{
 		bia = new BuiltInAccelerometer();
 		pdp = new PowerDistributionPanel();
+		//potV = new AnalogPotentiometer(3);
+	    pot = new AnalogPotentiometer(0,360,30);
+	    
+	}
+	
+	public void potValues(){
+		if(pot != null){
+			
+			//AnalogInput ai = new AnalogInput(3);
+			//pot = new AnalogPotentiometer(ai, 360, 30);
+			//SmartDashboard.putDouble("Potentiometer Value", pot.get());
+			
+//			double p = potV.get();
+//			p *= 1000;
+//			
+//			double pot = potV.pidGet();
+//			SmartDashboard.putDouble("Potentiometer Value", pot);
+		}
 	}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new PutSensorValues());
     }
    
     //returns the acceleration of the RoboRIO along the x axis in g-forces
@@ -31,7 +57,7 @@ public class SensorBase extends Subsystem {
     {
     	return bia.getX();
     }
-    
+      
   //returns the acceleration of the RoboRIO along the Y axis in g-forces
     public double getAccelerometerY()
     {

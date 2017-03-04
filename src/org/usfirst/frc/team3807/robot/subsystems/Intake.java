@@ -20,8 +20,6 @@ public class Intake extends Subsystem {
 		//double speedIntake = 0;
 		intake1.set(speedIntake);
 		intake2.set(-speedIntake);
-		
-		
 	}
 	public void reverseIntake(double speedIntake){
 		//double speedIntake = 0;

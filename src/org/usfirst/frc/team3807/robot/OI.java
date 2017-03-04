@@ -2,6 +2,10 @@ package org.usfirst.frc.team3807.robot;
 import org.usfirst.frc.team3807.robot.commands.Intake.HaltIntake;
 import org.usfirst.frc.team3807.robot.commands.Intake.ReverseIntake;
 import org.usfirst.frc.team3807.robot.commands.Intake.RunIntake;
+import org.usfirst.frc.team3807.robot.commands.Shooter.DecreaseShooterAngle;
+import org.usfirst.frc.team3807.robot.commands.Shooter.IncreaseShooterAngle;
+import org.usfirst.frc.team3807.robot.commands.Shooter.RunShooter;
+import org.usfirst.frc.team3807.robot.commands.Shooter.TimeShooter;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
@@ -52,8 +56,12 @@ public class OI {
 	private final JoystickButton intake2;
 	private final JoystickButton intake3;
 	//private final JoystickButton testXBoxButton;
-	//private final JoystickButton increaseAngle;
 	
+	//creating the Buttons for pShooter
+	private final JoystickButton increaseAngle;
+	private final JoystickButton decreaseAngle;
+	private final JoystickButton shoot;
+//	
 	//Creating the Buttons for Climber
 	//Creating the Buttons for Shooter
 	
@@ -67,15 +75,23 @@ public class OI {
 //		//setting the buttons for intake
 		intake1=new JoystickButton(joystick,9);
 		intake1.toggleWhenPressed(new ReverseIntake(0.5));
-		//testXBoxButton = new JoystickButton(xBoxCoDriver, 0);
+//		//testXBoxButton = new JoystickButton(xBoxCoDriver, 0);
 		intake2=new JoystickButton(joystick,11);
 		intake2.toggleWhenPressed(new RunIntake(0.9));
-		
+//		
 		intake3 = new JoystickButton(joystick,10);
 		intake3.whenPressed(new HaltIntake());
-////		
-		//increaseAngle = new JoystickButton();
-		//increaseAngle.whenPressed(command);
+		
+		//shooter buttons
+		increaseAngle = new JoystickButton(this.xBoxCoDriver, 4);
+		increaseAngle.whenReleased(new IncreaseShooterAngle(30));
+		
+		decreaseAngle = new JoystickButton(this.xBoxCoDriver,1);
+		decreaseAngle.whenReleased(new DecreaseShooterAngle(30));
+		
+		shoot = new JoystickButton(this.xBoxCoDriver,3);
+		shoot.whileHeld(new RunShooter());
+//		
 		//setting the button for Climber
 		//setting the button for Shooter
 	}

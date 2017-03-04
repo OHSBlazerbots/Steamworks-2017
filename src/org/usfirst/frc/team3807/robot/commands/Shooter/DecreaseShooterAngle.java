@@ -2,13 +2,19 @@ package org.usfirst.frc.team3807.robot.commands.Shooter;
 
 import org.usfirst.frc.team3807.robot.commands.CommandBase;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 public class DecreaseShooterAngle extends CommandBase{
 	
-	public DecreaseShooterAngle(){
-		requires(shooter);
+	double val;
+	public DecreaseShooterAngle(double v){
+		requires(pShooter);
+		val = v;
 	}
 	protected void initialize() {
-		shooter.setServoAngle(shooter.getServoAngle() - 10);
+		pShooter.setSetpoint(pShooter.getSetpoint() - val);
+		SmartDashboard.putDouble("Get SetPoint", pShooter.getSetpoint());
+
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -27,7 +33,7 @@ public class DecreaseShooterAngle extends CommandBase{
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

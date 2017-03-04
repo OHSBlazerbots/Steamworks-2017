@@ -10,7 +10,7 @@ public class RunShooter extends CommandBase {
 
     public RunShooter() {
         // Use requires() here to declare subsystem dependencies
-        requires(shooter);
+        requires(pShooter);
     }
 
     // Called just before this Command runs the first time
@@ -20,7 +20,7 @@ public class RunShooter extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//Can be set in *future* RobotValues class
-    	shooter.setShooterSpeed(0.8);
+    	pShooter.setShooterSpeed(0.8);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -30,6 +30,7 @@ public class RunShooter extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+    	pShooter.setShooterSpeed(0);
     }
 
     // Called when another command which requires one or more of the same

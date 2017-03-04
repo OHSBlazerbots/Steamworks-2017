@@ -10,7 +10,7 @@ public class StopShooter extends CommandBase {
     public StopShooter() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(shooter);
+    	requires(pShooter);
     }
 
     // Called just before this Command runs the first time
@@ -19,7 +19,7 @@ public class StopShooter extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	shooter.setShooterSpeed(0.0);
+    	pShooter.setShooterSpeed(0.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()

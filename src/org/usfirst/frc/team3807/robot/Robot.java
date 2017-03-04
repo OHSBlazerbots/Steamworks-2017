@@ -52,8 +52,8 @@ public class Robot extends IterativeRobot {
 			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture("cam0",0);
 			UsbCamera camera2 = CameraServer.getInstance().startAutomaticCapture("cam1",1);
 			
-            camera.setResolution(640, 480);
-            camera2.setResolution(640, 480);
+            camera.setResolution(640, 360);
+            camera2.setResolution(640, 360);
             
 //            CvSink cvSink = CameraServer.getInstance().getVideo();
 //            CvSource outputStream = CameraServer.getInstance().putVideo("Bubblegum", 640, 480);
