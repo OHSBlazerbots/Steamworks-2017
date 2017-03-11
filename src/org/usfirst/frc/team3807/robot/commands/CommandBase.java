@@ -28,9 +28,9 @@ public abstract class CommandBase extends Command {
 	//shooter: pshooter (PID) or shooter (non PID)....Pick ONE
      public static PIDShooter pShooter = new PIDShooter(.5,.5,.5,RobotMap.SHOOTER_LEFT, RobotMap.SHOOTER_RIGHT, RobotMap.ANGLE_CHANGER);
     // public static Shooter shooter = new Shooter(RobotMap.SHOOTER_LEFT, RobotMap.SHOOTER_RIGHT, RobotMap.ANGLE_CHANGER);
+     public static Chassis chassis = new Chassis(RobotMap.LEFT, RobotMap.RIGHT);
 
      public static OI oi;
-    public static Chassis chassis = new Chassis(RobotMap.LEFT, RobotMap.RIGHT);
     public static SensorBase  sensorBase = new SensorBase();
     public static PrototypeMotors protos = new PrototypeMotors(RobotMap.PROTO_TYPE, RobotMap.PROTO_TYPE_2);
     public static Climber climber = new Climber(RobotMap.CLIMBER_MOTOR);
@@ -43,6 +43,7 @@ public abstract class CommandBase extends Command {
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
     	pShooter.enable();
+    	pShooter.setSetpoint(1023);
        
         //
         

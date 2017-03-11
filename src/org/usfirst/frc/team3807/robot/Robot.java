@@ -1,11 +1,15 @@
 package org.usfirst.frc.team3807.robot;
 
+import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team3807.robot.commands.CommandBase;
 import org.usfirst.frc.team3807.robot.commands.autonomous.DoNothingAuto;
 import org.usfirst.frc.team3807.robot.commands.autonomous.DriveFowardAuto;
 import org.usfirst.frc.team3807.robot.commands.autonomous.GearAuto;
 import org.usfirst.frc.team3807.robot.commands.autonomous.ProtoAuto;
 
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -48,26 +52,42 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData("Autonomoous mode chooser", autoChooser);
 		
 		
+//		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+//		
+//		VisionThread visionThread = new VisionThread(camera, new GripPipeline(), pipeline -> {
+//	        if (!pipeline.findBlobsOutput().isContinuous()) {
+//	             c = Imgproc.circle(pipeline.findBlobsOutput().get(0, 0), center, radius, color);
+//	            synchronized (imgLock) {
+//	                centerX = r.x + (r.width / 2);
+//	            }
+//	        }
+//	    });
+//	    visionThread.start();
+		
+		
+		
 		new Thread(() -> {
 			UsbCamera camera = CameraServer.getInstance().startAutomaticCapture("cam0",0);
 			UsbCamera camera2 = CameraServer.getInstance().startAutomaticCapture("cam1",1);
-			
-            camera.setResolution(640, 360);
-            camera2.setResolution(640, 360);
+            camera.setResolution(640, 480);
+            camera2.setResolution(320, 240);
             
-//            CvSink cvSink = CameraServer.getInstance().getVideo();
-//            CvSource outputStream = CameraServer.getInstance().putVideo("Bubblegum", 640, 480);
-//            
-//            Mat source = new Mat();
-//            Mat output = new Mat();
-//            
-//            while(!Thread.interrupted()) {
-//                cvSink.grabFrame(source);
-//                Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
-//                outputStream.putFrame(output);
-//            }
-			
+            CvSink cvSink = CameraServer.getInstance().getVideo();
+            CvSource outputStream = CameraServer.getInstance().putVideo("TEST", 640, 480);
+            
+            Mat source = new Mat();
+            Mat output = new Mat();
+            
+            while(!Thread.interrupted()) {
+                cvSink.grabFrame(source);
+                Imgproc.cvtColor(source, output, Imgproc.COLOR_COLORCVT_MAX);
+                outputStream.putFrame(output);
+            }
         }).start();
+		
+		
+		
+		
 		//autonomousCommand = new ProtoAuto();
 
 //		try {

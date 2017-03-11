@@ -21,7 +21,7 @@ public class RobotMap {
 	
 	//ID's for the Chassis the Wheels, Cantalon
 	public static int RIGHT = 6;
-	public static int LEFT = 7;
+	public static int LEFT = 1;
 	
 	//IDs for the joysticks
 	public static int XBOX_CONTROLLER = 1; 
@@ -29,13 +29,13 @@ public class RobotMap {
 	public static int CODRIVER_JOYSTICK_PORT2= -1; 
 	public static int JOYSTICK_PORT = 0;
 	
-	//chassis talons
-	public static CANTalon LEFT_TALON = new CANTalon(LEFT);
-	public static CANTalon RIGHT_TALON = new CANTalon(RIGHT);
-	
+//	//chassis talons
+//	public static CANTalon LEFT_TALON = new CANTalon(LEFT);
+//	public static CANTalon RIGHT_TALON = new CANTalon(RIGHT);
+//	
 	//Picker Upper/Intake
-	public static int INTAKE_LEFT = 1;
-	public static int INTAKE_RIGHT = 2;
+	public static int INTAKE_LEFT = 2;
+	public static int INTAKE_RIGHT = 4;
 	public static CANTalon INTAKE_PICKERUPPER_1 = new CANTalon(INTAKE_LEFT);
 	public static CANTalon INTAKE_PICKERUPPER_2 = new CANTalon(INTAKE_RIGHT);
 	
@@ -44,13 +44,9 @@ public class RobotMap {
 	public static CANTalon CLIMBER = new CANTalon(CLIMBER_MOTOR);
 	
 	//Shooter
-	public static int SHOOTER_LEFT = 3;
-	public static int SHOOTER_RIGHT = 4;
+	public static int SHOOTER_LEFT = -1;
+	public static int SHOOTER_RIGHT = -1;
 	public static int ANGLE_CHANGER = 5;
-			
-	public static CANTalon SHOOTER_LEFT_SIDE = new CANTalon(SHOOTER_LEFT);
-	public static CANTalon SHOOTER_RIGHT_SIDE = new CANTalon(SHOOTER_RIGHT);
-	public static CANTalon ANGLE_CHANGER_SHOOTER = new CANTalon(ANGLE_CHANGER);
 	
 	
 	//prototype motors for 2017 steamworks

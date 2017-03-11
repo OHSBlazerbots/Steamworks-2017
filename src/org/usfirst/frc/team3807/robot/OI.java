@@ -73,16 +73,16 @@ public class OI {
 		//inverse.toggleWhenPressed(new InverseDrive());
 		
 //		//setting the buttons for intake
-		intake1=new JoystickButton(joystick,9);
-		intake1.toggleWhenPressed(new ReverseIntake(0.5));
+		intake1=new JoystickButton(joystick,5);
+		intake1.whenPressed(new ReverseIntake(0.5));
 //		//testXBoxButton = new JoystickButton(xBoxCoDriver, 0);
-		intake2=new JoystickButton(joystick,11);
+		intake2=new JoystickButton(joystick,3);
 		intake2.toggleWhenPressed(new RunIntake(0.9));
-//		
-		intake3 = new JoystickButton(joystick,10);
+//		   
+		intake3 = new JoystickButton(joystick,4);
 		intake3.whenPressed(new HaltIntake());
 		
-		//shooter buttons
+		//shooter buttons, on the xbox, the xbox buttons have numbers and triggers than one can access them the normal way for buttons
 		increaseAngle = new JoystickButton(this.xBoxCoDriver, 4);
 		increaseAngle.whenReleased(new IncreaseShooterAngle(30));
 		

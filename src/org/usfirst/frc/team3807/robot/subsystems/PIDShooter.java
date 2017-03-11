@@ -23,7 +23,7 @@ public class PIDShooter extends PIDSubsystem{
 		shooterLeft = new CANTalon(shooterL);
 		shooterAngle = new CANTalon(shooterA);
 		potent = new AnalogPotentiometer(3);
-		this.setOutputRange(-1, 1);
+		this.setOutputRange(-0.25, 0.25);
 	}
 
 	@Override
@@ -44,9 +44,9 @@ public class PIDShooter extends PIDSubsystem{
 	@Override
 	protected void usePIDOutput(double output) {
 		// TODO Auto-generated method stub
-		SmartDashboard.putNumber("output", output);
+		SmartDashboard.putNumber("output", -output);
 		
-		shooterAngle.pidWrite(output);
+		shooterAngle.pidWrite(-output);
 		
 		
 	}

@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * CANTalon replaced with CANTalon
@@ -48,8 +49,10 @@ public class Chassis extends Subsystem {
 		//Changes how fast the robot is going. The turn changes how fast it turns, that values must be high in order for the robot to turn
 		//move changes how fast the robot moves forward and backwards and so that value has to be lower to fit the speed of turn.
 		double turn = joystick.getZ()*.7;
+		SmartDashboard.putNumber("turn", turn);
 			 //Drive is the y
 			 double move = joystick.getY()*.7;
+			 SmartDashboard.putNumber("move", move);
 			//the code above slows down the robot, remove *0.x to bring it back to normal speed
 			drive(move, turn);
 	 }
