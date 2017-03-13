@@ -19,6 +19,10 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
+	/*
+	PORTS TAKEN: 1, 2, 4, 5, 6,7, 8
+	FREE PORTS: 3
+	*/
 	//ID's for the Chassis the Wheels, Cantalon
 	public static int RIGHT = 6;
 	public static int LEFT = 1;
@@ -44,8 +48,8 @@ public class RobotMap {
 	public static CANTalon CLIMBER = new CANTalon(CLIMBER_MOTOR);
 	
 	//Shooter
-	public static int SHOOTER_LEFT = -1;
-	public static int SHOOTER_RIGHT = -1;
+	public static int SHOOTER_LEFT = 7;
+	public static int SHOOTER_RIGHT = 8;
 	public static int ANGLE_CHANGER = 5;
 	
 	

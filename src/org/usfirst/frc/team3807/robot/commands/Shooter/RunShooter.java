@@ -15,12 +15,13 @@ public class RunShooter extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	pShooter.setShooterSpeed(0.8);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//Can be set in *future* RobotValues class
-    	pShooter.setShooterSpeed(0.8);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

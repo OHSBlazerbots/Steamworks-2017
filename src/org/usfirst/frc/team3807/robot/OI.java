@@ -90,7 +90,7 @@ public class OI {
 		decreaseAngle.whenReleased(new DecreaseShooterAngle(30));
 		
 		shoot = new JoystickButton(this.xBoxCoDriver,3);
-		shoot.whileHeld(new RunShooter());
+		shoot.toggleWhenPressed(new RunShooter());
 //		
 		//setting the button for Climber
 		//setting the button for Shooter
