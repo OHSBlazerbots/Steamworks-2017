@@ -5,9 +5,9 @@ import org.usfirst.frc.team3807.robot.commands.Intake.RunIntake;
 import org.usfirst.frc.team3807.robot.commands.Shooter.DecreaseShooterAngle;
 import org.usfirst.frc.team3807.robot.commands.Shooter.IncreaseShooterAngle;
 import org.usfirst.frc.team3807.robot.commands.Shooter.RunShooter;
-import org.usfirst.frc.team3807.robot.commands.Shooter.TimeShooter;
+import org.usfirst.frc.team3807.robot.commands.Shooter.StopShooter;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -58,9 +58,7 @@ public class OI {
 	//private final JoystickButton testXBoxButton;
 	
 	//creating the Buttons for pShooter
-	private final JoystickButton increaseAngle;
-	private final JoystickButton decreaseAngle;
-	private final JoystickButton shoot;
+	private final JoystickButton increaseAngle, decreaseAngle, startShooter, stopShooter;
 //	
 	//Creating the Buttons for Climber
 	//Creating the Buttons for Shooter
@@ -89,9 +87,18 @@ public class OI {
 		decreaseAngle = new JoystickButton(this.xBoxCoDriver,1);
 		decreaseAngle.whenReleased(new DecreaseShooterAngle(30));
 		
-		shoot = new JoystickButton(this.xBoxCoDriver,3);
-		shoot.toggleWhenPressed(new RunShooter());
+		startShooter = new JoystickButton(joystick, 1);
+		startShooter.whenPressed(new RunShooter());
+		
+		stopShooter = new JoystickButton(joystick, 2);
+		stopShooter.whenPressed(new StopShooter());
+		
+		if(xBoxCoDriver.getXButton())
+		{
+			xBoxCoDriver.setRumble(GenericHID.RumbleType.kLeftRumble, 1);
+		}
 //		
+		
 		//setting the button for Climber
 		//setting the button for Shooter
 	}

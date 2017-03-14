@@ -26,7 +26,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public abstract class CommandBase extends Command {
 
 	//shooter: pshooter (PID) or shooter (non PID)....Pick ONE
-     public static PIDShooter pShooter = new PIDShooter(.5,.5,.5,RobotMap.SHOOTER_LEFT, RobotMap.SHOOTER_RIGHT, RobotMap.ANGLE_CHANGER);
+     public static PIDShooter pShooter = new PIDShooter(.25,0,0,RobotMap.SHOOTER_LEFT, RobotMap.SHOOTER_RIGHT, RobotMap.ANGLE_CHANGER);
     // public static Shooter shooter = new Shooter(RobotMap.SHOOTER_LEFT, RobotMap.SHOOTER_RIGHT, RobotMap.ANGLE_CHANGER);
      public static Chassis chassis = new Chassis(RobotMap.LEFT, RobotMap.RIGHT);
 
