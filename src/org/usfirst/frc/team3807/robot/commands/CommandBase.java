@@ -9,6 +9,7 @@ import org.usfirst.frc.team3807.robot.subsystems.Climber;
 import org.usfirst.frc.team3807.robot.subsystems.Intake;
 import org.usfirst.frc.team3807.robot.subsystems.PIDShooter;
 import org.usfirst.frc.team3807.robot.subsystems.PrototypeMotors;
+import org.usfirst.frc.team3807.robot.subsystems.Rumble;
 import org.usfirst.frc.team3807.robot.subsystems.SensorBase;
 import org.usfirst.frc.team3807.robot.subsystems.Shooter;
 
@@ -35,6 +36,7 @@ public abstract class CommandBase extends Command {
     public static PrototypeMotors protos = new PrototypeMotors(RobotMap.PROTO_TYPE, RobotMap.PROTO_TYPE_2);
     public static Climber climber = new Climber(RobotMap.CLIMBER_MOTOR);
     public static Intake intake = new Intake(RobotMap.INTAKE_LEFT,RobotMap.INTAKE_RIGHT);
+    public static Rumble rumble = new Rumble();
    
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -42,8 +44,9 @@ public abstract class CommandBase extends Command {
         // which commands extend), subsystems are not guaranteed to be
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
-    	pShooter.enable();
-    	pShooter.setSetpoint(1023);
+    	
+//    	pShooter.enable();
+//    	pShooter.setSetpoint(pShooter.getSetpoint());
        
         //
         

@@ -1,4 +1,5 @@
 package org.usfirst.frc.team3807.robot;
+import org.usfirst.frc.team3807.robot.commands.StartRumble;
 import org.usfirst.frc.team3807.robot.commands.Intake.HaltIntake;
 import org.usfirst.frc.team3807.robot.commands.Intake.ReverseIntake;
 import org.usfirst.frc.team3807.robot.commands.Intake.RunIntake;
@@ -46,7 +47,7 @@ public class OI {
 	private static Joystick joystick = new Joystick(RobotMap.JOYSTICK_PORT);
 	private static Joystick coDriver1 = new Joystick(RobotMap.CODRIVER_JOYSTICK_PORT);
 	private static Joystick coDriver2 = new Joystick(RobotMap.CODRIVER_JOYSTICK_PORT2);
-	private static XboxController xBoxCoDriver = new XboxController(RobotMap.XBOX_CONTROLLER);
+	public static XboxController xBoxCoDriver = new XboxController(RobotMap.XBOX_CONTROLLER);
 	//private final JoystickButton inverse;
 	// Joystick stick = new Joystick(port);
 	// Button button = new JoystickButton(stick, buttonNumber);
@@ -58,8 +59,11 @@ public class OI {
 	//private final JoystickButton testXBoxButton;
 	
 	//creating the Buttons for pShooter
-	private final JoystickButton increaseAngle, decreaseAngle, startShooter, stopShooter;
+	//private final JoystickButton increaseAngle, decreaseAngle, startShooter, stopShooter;
+	//private final JoystickButton startShooter, stopShooter;
 //	
+	private final JoystickButton startShooter, stopShooter;
+	//rumbleButton;
 	//Creating the Buttons for Climber
 	//Creating the Buttons for Shooter
 	
@@ -70,33 +74,42 @@ public class OI {
 		//inverse = new JoystickButton(joystick,7); //It is button one on the driver joystick, it changes the direction of ther robot controls for chassis
 		//inverse.toggleWhenPressed(new InverseDrive());
 		
-//		//setting the buttons for intake
-		intake1=new JoystickButton(joystick,5);
+		//setting the buttons for intake
+		intake1=new JoystickButton(joystick,1);
 		intake1.whenPressed(new ReverseIntake(0.5));
 //		//testXBoxButton = new JoystickButton(xBoxCoDriver, 0);
 		intake2=new JoystickButton(joystick,3);
 		intake2.toggleWhenPressed(new RunIntake(0.9));
 //		   
-		intake3 = new JoystickButton(joystick,4);
+		intake3 = new JoystickButton(joystick,2);
 		intake3.whenPressed(new HaltIntake());
 		
 		//shooter buttons, on the xbox, the xbox buttons have numbers and triggers than one can access them the normal way for buttons
-		increaseAngle = new JoystickButton(this.xBoxCoDriver, 4);
-		increaseAngle.whenReleased(new IncreaseShooterAngle(30));
+//		increaseAngle = new JoystickButton(this.xBoxCoDriver, 4);
+//		increaseAngle.whenReleased(new IncreaseShooterAngle(30));
+//		
+//		decreaseAngle = new JoystickButton(this.xBoxCoDriver,1);
+//		decreaseAngle.whenReleased(new DecreaseShooterAngle(30));
 		
-		decreaseAngle = new JoystickButton(this.xBoxCoDriver,1);
-		decreaseAngle.whenReleased(new DecreaseShooterAngle(30));
-		
-		startShooter = new JoystickButton(joystick, 1);
+		startShooter = new JoystickButton(xBoxCoDriver, 1);
 		startShooter.whenPressed(new RunShooter());
 		
-		stopShooter = new JoystickButton(joystick, 2);
+		stopShooter = new JoystickButton(xBoxCoDriver, 4);
 		stopShooter.whenPressed(new StopShooter());
 		
-		if(xBoxCoDriver.getXButton())
-		{
-			xBoxCoDriver.setRumble(GenericHID.RumbleType.kLeftRumble, 1);
-		}
+//		rumbleButton = new JoystickButton(this.xBoxCoDriver,7);
+//		rumbleButton.whenPressed(new StartRumble());
+		
+		//while(-1!=0)
+		//{
+//			if(xBoxCoDriver.getXButton())
+//			{
+//				xBoxCoDriver.setRumble(GenericHID.RumbleType.kLeftRumble, 1);
+//			}
+//		//}
+		
+		
+		
 //		
 		
 		//setting the button for Climber
@@ -121,5 +134,7 @@ public class OI {
 	{
 		return xBoxCoDriver;
 	}
+	
+	
 	
 }

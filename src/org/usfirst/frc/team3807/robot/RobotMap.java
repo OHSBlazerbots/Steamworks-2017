@@ -28,10 +28,10 @@ public class RobotMap {
 	public static int LEFT = 1;
 	
 	//IDs for the joysticks
-	public static int XBOX_CONTROLLER = 1; 
+	public static int XBOX_CONTROLLER = 0; 
 	public static int CODRIVER_JOYSTICK_PORT = -1;
 	public static int CODRIVER_JOYSTICK_PORT2= -1; 
-	public static int JOYSTICK_PORT = 0;
+	public static int JOYSTICK_PORT = 1;
 	
 //	//chassis talons
 //	public static CANTalon LEFT_TALON = new CANTalon(LEFT);
@@ -40,8 +40,7 @@ public class RobotMap {
 	//Picker Upper/Intake
 	public static int INTAKE_LEFT = 2;
 	public static int INTAKE_RIGHT = 4;
-	public static CANTalon INTAKE_PICKERUPPER_1 = new CANTalon(INTAKE_LEFT);
-	public static CANTalon INTAKE_PICKERUPPER_2 = new CANTalon(INTAKE_RIGHT);
+
 	
 	//Climber
 	public static int CLIMBER_MOTOR = -1;
