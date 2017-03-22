@@ -5,8 +5,9 @@ import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team3807.robot.commands.CommandBase;
 import org.usfirst.frc.team3807.robot.commands.autonomous.DoNothingAuto;
 import org.usfirst.frc.team3807.robot.commands.autonomous.DriveFowardAuto;
-import org.usfirst.frc.team3807.robot.commands.autonomous.GearAuto;
-import org.usfirst.frc.team3807.robot.commands.autonomous.ProtoAuto;
+import org.usfirst.frc.team3807.robot.commands.autonomous.GearAutoCenter;
+import org.usfirst.frc.team3807.robot.commands.autonomous.GearAutoLeft;
+import org.usfirst.frc.team3807.robot.commands.autonomous.GearAutoRight;
 
 import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
@@ -46,8 +47,9 @@ public class Robot extends IterativeRobot {
 		autoChooser = new SendableChooser();
 		autoChooser.addDefault("DoNothingAuto", new DoNothingAuto());
 		autoChooser.addObject("DriveFoward", new DriveFowardAuto());
-		autoChooser.addObject("ProtoAuto", new ProtoAuto());
-		autoChooser.addObject("GearAuto", new GearAuto());
+		autoChooser.addObject("GearAutoRight", new GearAutoRight());
+		autoChooser.addObject("GearAutoCenter", new GearAutoCenter());
+		autoChooser.addObject("GearAutoLeft", new GearAutoLeft());
 		
 		SmartDashboard.putData("Autonomoous mode chooser", autoChooser);
 		

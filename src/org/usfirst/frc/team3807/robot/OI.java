@@ -75,10 +75,10 @@ public class OI {
 		//inverse.toggleWhenPressed(new InverseDrive());
 		
 		//setting the buttons for intake
-		intake1=new JoystickButton(joystick,1);
+		intake1=new JoystickButton(joystick,3);
 		intake1.whenPressed(new ReverseIntake(0.5));
 //		//testXBoxButton = new JoystickButton(xBoxCoDriver, 0);
-		intake2=new JoystickButton(joystick,3);
+		intake2=new JoystickButton(joystick,1);
 		intake2.toggleWhenPressed(new RunIntake(0.9));
 //		   
 		intake3 = new JoystickButton(joystick,2);
@@ -91,10 +91,10 @@ public class OI {
 //		decreaseAngle = new JoystickButton(this.xBoxCoDriver,1);
 //		decreaseAngle.whenReleased(new DecreaseShooterAngle(30));
 		
-		startShooter = new JoystickButton(xBoxCoDriver, 1);
+		startShooter = new JoystickButton(xBoxCoDriver, 4);
 		startShooter.whenPressed(new RunShooter());
 		
-		stopShooter = new JoystickButton(xBoxCoDriver, 4);
+		stopShooter = new JoystickButton(xBoxCoDriver, 1);
 		stopShooter.whenPressed(new StopShooter());
 		
 //		rumbleButton = new JoystickButton(this.xBoxCoDriver,7);

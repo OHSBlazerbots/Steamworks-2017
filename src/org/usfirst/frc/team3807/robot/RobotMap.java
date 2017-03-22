@@ -48,8 +48,10 @@ public class RobotMap {
 	
 	//Shooter
 	public static int SHOOTER_LEFT = 7;
-	public static int SHOOTER_RIGHT = 8;
-	public static int ANGLE_CHANGER = 5;
+	public static int SHOOTER_RIGHT = 5;
+	
+	//r
+	public static int ANGLE_CHANGER = -1;
 	
 	
 	//prototype motors for 2017 steamworks

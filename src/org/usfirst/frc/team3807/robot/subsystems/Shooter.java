@@ -24,8 +24,8 @@ public class Shooter extends Subsystem{
 	}
 	
 	public void setShooterSpeed(double speed){
-		talonA.set(speed);
-		talonB.set(-speed);
+		talonA.set(-speed);
+		talonB.set(speed);
 	}
 	
 //	//Range is typically 0 to 170 degrees, but check specs.

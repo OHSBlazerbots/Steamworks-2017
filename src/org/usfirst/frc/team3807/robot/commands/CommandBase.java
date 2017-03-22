@@ -32,7 +32,7 @@ public abstract class CommandBase extends Command {
      public static Chassis chassis = new Chassis(RobotMap.LEFT, RobotMap.RIGHT);
 
      public static OI oi;
-    public static SensorBase  sensorBase = new SensorBase();
+   // public static SensorBase  sensorBase = new SensorBase();
     public static PrototypeMotors protos = new PrototypeMotors(RobotMap.PROTO_TYPE, RobotMap.PROTO_TYPE_2);
     public static Climber climber = new Climber(RobotMap.CLIMBER_MOTOR);
     public static Intake intake = new Intake(RobotMap.INTAKE_LEFT,RobotMap.INTAKE_RIGHT);

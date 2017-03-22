@@ -1,14 +1,7 @@
 package org.usfirst.frc.team3807.robot.subsystems;
 
-import org.usfirst.frc.team3807.robot.commands.PutSensorValues;
-
-import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.AnalogPotentiometer;
-import edu.wpi.first.wpilibj.BuiltInAccelerometer;
-import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.interfaces.Potentiometer;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Holds all sensors, performs appropriate calculations, and returns values to SmartDashboard.
@@ -18,22 +11,24 @@ public class SensorBase extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-	private BuiltInAccelerometer bia;
-	private PowerDistributionPanel pdp;
-	Potentiometer pot;
-	//	private AnalogPotentiometer potV;
+//	private BuiltInAccelerometer bia;
+//	private PowerDistributionPanel pdp;
+//	Potentiometer pot;
+//	private AnalogPotentiometer potV;
+	DigitalInput limitSwitch;
 	
 	public SensorBase()
 	{
-		bia = new BuiltInAccelerometer();
-		pdp = new PowerDistributionPanel();
-		//potV = new AnalogPotentiometer(3);
-	    pot = new AnalogPotentiometer(0,360,30);
+//		bia = new BuiltInAccelerometer();
+//		pdp = new PowerDistributionPanel();
+//		//potV = new AnalogPotentiometer(3);
+//	    pot = new AnalogPotentiometer(0,360,30);
+		limitSwitch = new DigitalInput(0);
 	    
 	}
 	
 	public void potValues(){
-		if(pot != null){
+//		if(pot != null){
 			
 			//AnalogInput ai = new AnalogInput(3);
 			//pot = new AnalogPotentiometer(ai, 360, 30);
@@ -45,30 +40,30 @@ public class SensorBase extends Subsystem {
 //			double pot = potV.pidGet();
 //			SmartDashboard.putDouble("Potentiometer Value", pot);
 		}
-	}
+	//}
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new PutSensorValues());
+        //setDefaultCommand(new PutSensorValues());
     }
    
     //returns the acceleration of the RoboRIO along the x axis in g-forces
-    public double getAccelerometerX()
-    {
-    	return bia.getX();
-    }
+//    public double getAccelerometerX()
+//    {
+//    	return bia.getX();
+//    }
       
   //returns the acceleration of the RoboRIO along the Y axis in g-forces
-    public double getAccelerometerY()
-    {
-    	return bia.getY();
-    }
+//    public double getAccelerometerY()
+//    {
+//    	return bia.getY();
+//    }
     
   //returns the acceleration of the RoboRIO along the z axis in g-forces
-    public double getAccelerometerZ()
-    {
-    	return bia.getZ();
-    }
+//    public double getAccelerometerZ()
+//    {
+//    	return bia.getZ();
+//    }
     
 /*//    //returns pdp current
 //    public double getTotalPDPCurrent()
@@ -96,8 +91,17 @@ public class SensorBase extends Subsystem {
 //    {
 //    	return pdp.getCurrent(2);
 //    }
+ *   
 */    
+    public boolean getLimitSwitch()
+    {
+    	return limitSwitch.get();
+    }
     
+    public DigitalInput getLS()
+    {
+    	return limitSwitch;
+    }
     //prints the current values on SmartDashboard
     public void printCurrents()
     {

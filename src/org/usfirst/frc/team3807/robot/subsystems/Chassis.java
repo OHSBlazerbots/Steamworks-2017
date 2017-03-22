@@ -7,6 +7,7 @@ import org.usfirst.frc.team3807.robot.commands.Proto.DriveProtoWithJoystick;
 
 import com.ctre.CANTalon;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -25,6 +26,8 @@ public class Chassis extends Subsystem {
 	// RobotDrive robotDrive;
 	CANTalon left, right;
 	public RobotDrive drive;
+	
+	private DigitalInput limitSwitch;
 
 	//private CANTalon protoMotor2 = new CANTalon(RobotMap.PROTO_TYPE2);
 	private boolean reverse;
@@ -37,6 +40,8 @@ public class Chassis extends Subsystem {
 		}
 		drive = new RobotDrive(left, right);
 		drive.setSafetyEnabled(false);
+		
+		limitSwitch = new DigitalInput(0);
 	}
 	
 	public void drive(double speed, double turn) {
@@ -54,7 +59,7 @@ public class Chassis extends Subsystem {
 			 double move = joystick.getY()*.7;
 			 SmartDashboard.putNumber("move", move);
 			//the code above slows down the robot, remove *0.x to bring it back to normal speed
-			drive(move, turn);
+			drive(move, turn + .2);
 	 }
 
 	
@@ -77,5 +82,10 @@ public class Chassis extends Subsystem {
 	public void Halt() {
 		left.set(0);
 		right.set(0);
+	}
+	
+	public boolean isLimitSwitchPressed()
+	{
+		return !limitSwitch.get();
 	}
 }
